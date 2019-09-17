@@ -36,7 +36,17 @@ const Movie = props => {
   const { title, director, metascore, stars } = movie;
   return (
     <div className="save-wrapper">
+      <div>
         <MovieCard movie={movie} />
+
+        {props.addToSavedList &&
+      <div
+        onClick={(event) => {
+          event.preventDefault();
+          props.addToSavedList(movie);
+        }}
+          className="save-button">Save</div>}
+    </div>
       <div className="save-button" onClick={saveMovie} >Save</div>
     </div>
   );
